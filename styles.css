@@ -1,0 +1,458 @@
+:root {
+  --main-color: hsl(4, 100%, 67%);
+  --charcoal-grey: hsl(235, 18%, 26%);
+  --dark-slate-grey: hsl(234, 29%, 20%);
+  --grey: hsl(231, 7%, 60%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+h1,
+p,
+ul,
+li,
+label,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+p {
+  color: var(--dark-slate-grey);
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+.feature-list li,
+p,
+button {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 1em;
+  font-weight: 700;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*----------------------------------- */
+/* MAIN STYLING */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background: var(--charcoal-grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 450px;
+  height: 90vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  background-image: url("./assets/images/illustration-sign-up-mobile.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  flex: 1;
+}
+
+.info-email-group {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  flex: 1.5;
+}
+
+.text-specific {
+  display: block;
+}
+
+.info-email-group p {
+  margin-top: 1.5em;
+}
+
+.feature-list {
+  margin-top: 1.5em;
+}
+
+.feature-list li {
+  display: flex;
+}
+
+.feature-list li:not(:first-child) {
+  margin-top: 1em;
+}
+
+.feature-list img {
+  margin-right: 1em;
+  align-self: flex-start;
+}
+
+.feature-list p {
+  margin: 0;
+}
+
+.email {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invalid-message {
+  color: red;
+  display: none;
+}
+
+label {
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--dark-slate-grey);
+}
+
+input,
+input:hover {
+  border: 1px solid var(--grey);
+}
+
+input,
+.btn-subscribe {
+  border-radius: 9px;
+}
+
+input {
+  padding: 1.2em 2em;
+  font-size: 1rem;
+  transition: all 300ms ease;
+}
+
+input:hover {
+  background: var(--dark-slate-grey);
+  color: white;
+}
+
+input::-moz-placeholder {
+  font-size: 1rem;
+}
+
+input::placeholder {
+  font-size: 1rem;
+}
+
+input:hover::-moz-placeholder {
+  color: var(--main-color);
+}
+
+input:hover::placeholder {
+  color: var(--main-color);
+}
+
+.btn-subscribe {
+  margin-top: 1.5em;
+  padding: 1.2em 4em;
+  font-weight: 700;
+  color: white;
+  background-color: var(--dark-slate-grey);
+  position: relative;
+  transition: all 300ms ease;
+  z-index: 1;
+}
+
+.btn-subscribe:hover {
+  box-shadow: rgb(223, 86, 204) 0px 25px 20px -20px;
+}
+
+.btn-subscribe:active {
+  transform: translateY(3px);
+}
+
+.btn-subscribe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, rgb(223, 86, 204), rgb(224, 125, 11));
+  border-radius: 9px;
+  z-index: -1;
+  transition: transform 200ms ease;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.btn-subscribe:hover::before,
+.btn-subscribe:focus::before {
+  transform: scaleY(1);
+}
+
+/* ------------------------------------------------------ */
+.invalid-input {
+  border: 2px solid red;
+  background: hsl(0, 61%, 85%);
+}
+
+/* MOBILE AND DESKTOP SUCCESS MODAL(s) */
+.email-accent {
+  font-weight: 700;
+  background: transparent;
+  color: var(--dark-slate-grey);
+}
+
+/* MOBILE SIZES MODAL */
+.sign-up-success-modal-mobile,
+.sign-up-success-modal-desktop {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sign-up-success-modal-mobile {
+  padding: 9.5em 1.5em 0em;
+  height: 90vh;
+  min-width: 450px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+}
+
+.sign-up-text-mobile,
+.sign-up-text-desktop {
+  color: var(--dark-slate-grey);
+}
+
+.sign-up-text-mobile h2,
+.sign-up-text-desktop h2 {
+  margin-bottom: 0.4em;
+  line-height: 1;
+}
+
+.sign-up-text-mobile h2 {
+  font-size: 2.5rem;
+  margin-top: 1em;
+}
+
+.sign-up-text-mobile p,
+.sign-up-text-desktop p {
+  font-weight: 400;
+}
+
+.dismiss-message-button-mobile,
+.dismiss-message-button-desktop {
+  padding: 1.2em 4em;
+  font-weight: 700;
+  border-radius: 9px;
+  color: white;
+  background-color: var(--dark-slate-grey);
+}
+
+.dismiss-message-button-mobile {
+  margin-bottom: 2.5em;
+}
+
+/* DESKTOP AND 768PX+ sizes MODAL */
+.sign-up-success-modal-desktop {
+  padding: 2.5em 2em 0em;
+  height: 50vh;
+  min-width: 450px;
+  border-radius: 25px;
+  z-index: 200;
+  display: none;
+}
+
+.sign-up-text-desktop h2 {
+  font-size: 2.7rem;
+}
+
+.sign-up-success-icon-desktop {
+  width: 50px;
+  height: 50px;
+}
+
+.dismiss-message-button-desktop {
+  margin-bottom: 3.5em;
+  position: relative;
+  z-index: 1;
+  transition: all 300ms ease;
+}
+
+.dismiss-message-button-desktop:hover {
+  box-shadow: rgb(223, 86, 204) 0px 25px 20px -20px;
+}
+
+.dismiss-message-button-desktop:active {
+  transform: translateY(3px);
+}
+
+.dismiss-message-button-desktop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, rgb(223, 86, 204), rgb(224, 125, 11));
+  border-radius: 9px;
+  z-index: -1;
+  transition: transform 200ms ease;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.dismiss-message-button-desktop:hover::before,
+.dismiss-message-button-desktop::before {
+  transform: scaleY(1);
+}
+
+.modal-active {
+  display: flex;
+}
+
+/* ----------------------------- */
+/* MEDIA QUERIES */
+@media (max-width: 767px) {
+  .sign-up-success-modal-desktop {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .sign-up-success-modal-mobile {
+    display: none;
+  }
+  h1 {
+    font-size: 2.8rem;
+  }
+  .card {
+    padding: 1.3em;
+    min-width: 750px;
+    height: 70vh;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 3.5em;
+  }
+  .info-email-group {
+    padding: 0em;
+    padding-left: 2em;
+    flex: 1;
+    justify-content: center;
+  }
+  .image {
+    background: url("./assets/images/illustration-sign-up-desktop.svg");
+    background-size: cover;
+    background-position: right;
+    border-radius: 15px;
+  }
+  input {
+    padding: 1em;
+    font-size: 1.2rem;
+  }
+  .btn-subscribe {
+    padding: 1.2em 1.7em;
+  }
+  .feature-list li {
+    margin: 0;
+    padding: 0;
+  }
+  .feature-list img {
+    margin-right: 0.5em;
+  }
+  .info-email-group > p,
+  .feature-list p {
+    font-size: 0.9rem;
+  }
+  .text-specific {
+    display: inline-block;
+  }
+  .desktop-active {
+    padding: 0em 3em 2.5em;
+  }
+  .sign-up-image {
+    margin-top: 3em;
+  }
+}
+@media (min-width: 1024px) {
+  .sign-up-success-modal-desktop {
+    max-width: 600px;
+  }
+  .sign-up-text-desktop h2 {
+    font-size: 3rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .card {
+    min-width: 1000px;
+  }
+  .feature-list img {
+    margin-right: 1em;
+  }
+  .info-email-group > p,
+  .feature-list p {
+    font-size: 0.95rem;
+  }
+  input {
+    padding: 0.8em 1.5em;
+    font-size: 1.3rem;
+  }
+}
+/*--------------------------*/
+/* ANIMATIONS */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=styles.css.map */

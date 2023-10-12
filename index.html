@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!--DESKTOP and 768px screen sizes MODAL-->
+  <div class="sign-up-success-modal-desktop">
+    <div>
+      <div class="sign-up-image-desktop">
+        <img class="sign-up-success-icon-desktop" src="./assets/images/icon-success.svg">
+      </div>
+      <div class="sign-up-text-desktop">
+        <h2>Thanks for subscribing!</h2>
+        <p>DESKTOP modal poruka</p>
+      </div>
+    </div>
+    <button class="dismiss-message-button-desktop">Dismiss message</button>
+  </div>
+  <!--MOBILE screen sizes MODAL-->
+  <div class="sign-up-success-modal-mobile">
+    <div>
+      <div class="sign-up-image-mobile">
+        <img class="sign-up-success-icon-mobile" src="./assets/images/icon-success.svg">
+      </div>
+      <div class="sign-up-text-mobile">
+        <h2>Thanks for subscribing!</h2>
+        <p>MOBILE modal poruka</p>
+      </div>
+    </div>
+    <button class="dismiss-message-button-mobile">Dismiss message</button>
+  </div>
+
+  <section class="card">
+    <div class="image"></div>
+    <section class="info-email-group">
+      <h1>Stay updated!</h1>
+      <p>Join 60,000+ product managers receiving <span class="text-specific">monthly updates on:</span></p>
+      <ul class="feature-list">
+        <li>
+          <img src="./assets/images/icon-list.svg">
+          <p>Product discovery and building what <span class="text-specific">matters</span></p>
+        </li>
+        <li>
+          <img src="./assets/images/icon-list.svg">
+          <p>Measuring to ensure updates are a <span class="text-specific">success</span></p>
+        </li>
+        <li>
+          <img src="./assets/images/icon-list.svg">
+          <p>And much more!</p>
+        </li>
+      </ul>
+      <form class="email">
+        <div class="labels">
+          <label for="email">Email adress</label>
+          <label for="email" class="invalid-message">Valid email required</label>
+        </div>
+        <input id="email" type="email" name="email" placeholder="email@company.com" />
+        <button class="btn-subscribe">Subsribe to monthly newsletter</button>
+      </form>
+    </section>
+  </section>
+</body>
+</html>
